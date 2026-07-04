@@ -1,0 +1,77 @@
+.media-row {
+  margin-bottom: 44px;
+}
+
+.media-row__arrows {
+  display: flex;
+  gap: 6px;
+}
+
+.row-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+
+.row-arrow:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--border-mid);
+}
+
+.media-row__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 8px 4px 16px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.media-row__track::-webkit-scrollbar {
+  display: none;
+}
+
+.media-row__item {
+  flex: 0 0 160px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 600px) {
+  .media-row__item {
+    flex: 0 0 130px;
+  }
+
+  .media-row__arrows {
+    display: none;
+  }
+}
+
+/* Top 10 rank */
+.media-row__item.with-rank {
+  position: relative;
+  padding-left: 28px;
+  flex: 0 0 188px;
+}
+.media-row__item.with-rank .top10-num {
+  position: absolute;
+  bottom: 28px;
+  left: -8px;
+  font-family: var(--font-display);
+  font-size: 72px;
+  line-height: 1;
+  color: var(--bg-deep);
+  -webkit-text-stroke: 2px var(--bg-elevated);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}

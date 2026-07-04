@@ -1,0 +1,56 @@
+.sidebar {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 90;
+  width: var(--sidebar-width);
+  background: var(--bg-deep);
+  border-right: 1px solid var(--border-subtle);
+  display: flex; flex-direction: column;
+  padding: 0 0 20px;
+  transition: transform var(--transition-slow);
+}
+
+.sidebar__logo {
+  height: var(--nav-height);
+  display: flex; align-items: center;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.sidebar__logo a {
+  font-family: var(--font-display);
+  font-size: 24px; letter-spacing: 2px; color: var(--text-primary);
+}
+.sidebar__logo a span { color: var(--accent-primary); }
+
+.sidebar__nav { flex: 1; padding: 16px 10px; display: flex; flex-direction: column; gap: 2px; }
+
+.sidebar__link {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px; border-radius: var(--radius-md);
+  font-size: 14px; font-weight: 500; color: var(--text-secondary);
+  transition: all var(--transition); position: relative;
+}
+.sidebar__link:hover { background: var(--bg-elevated); color: var(--text-primary); }
+.sidebar__link.active { background: rgba(26,115,232,0.12); color: var(--accent-secondary); font-weight: 600; }
+
+.sidebar__icon { font-size: 18px; width: 22px; text-align: center; }
+.sidebar__label { flex: 1; }
+
+.sidebar__active-bar {
+  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 20px; background: var(--accent-primary);
+  border-radius: 2px 0 0 2px;
+}
+
+.sidebar__footer { padding: 16px 22px; border-top: 1px solid var(--border-subtle); }
+.sidebar__footer-text { font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.5px; }
+.sidebar__footer-sub { font-size: 11px; color: var(--text-muted); opacity: 0.6; margin-top: 3px; }
+
+/* Mobile */
+.sidebar-overlay {
+  position: fixed; inset: 0; z-index: 89;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+}
+
+@media (max-width: 900px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar--open { transform: translateX(0); box-shadow: 8px 0 40px rgba(0,0,0,0.6); }
+}
